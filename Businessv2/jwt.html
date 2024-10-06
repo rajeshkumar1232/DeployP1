@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jwt</title>
+</head>
+<body>
+  <p>A JWT has three parts:
+
+	Header: Specifies the algorithm used for signing (e.g., HMAC SHA256).
+	Payload: Contains the actual data, like user details (claims).
+	Signature: The encoded header and payload are signed using a secret key.</p>
+	
+	<p>
+	Steps in JWT Authorization:
+Client Requests Resource:
+
+For every subsequent request to a protected resource (e.g., /profile or /orders), the client includes the JWT in the request header (Authorization: Bearer <token>).
+Server Verifies JWT:
+
+The server checks if the JWT is valid (e.g., if the signature matches, token hasn’t expired, etc.).
+If valid, the server extracts the user information (claims) from the token.
+Access Control:
+
+Based on the user's roles or permissions contained in the JWT payload, the server allows or denies access to the requested resource.
+Response:
+
+If authorized, the server returns the resource.
+If unauthorized, the server returns a 403 Forbidden response.</p>
+</body>
+</html>

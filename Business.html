@@ -13,13 +13,10 @@
             display: flex;
 			/*flex-direction: row-reverse;*/
         }
-        /* Left content area */
-
-        /* Right navigation bar */
         .nav {
-            flex: 1;
+            flex: 2;
             background-color: #f4f4f4;
-            padding: 20px;
+            padding: 10px;
             min-height: 100vh; /* Full height */
         }
         .nav ul {
@@ -27,7 +24,7 @@
             padding: 0;
         }
         .nav ul li {
-            margin: 15px 0;
+            margin: 10px 0;
         }
         .nav ul li a {
             text-decoration: none;
@@ -38,7 +35,7 @@
             color: #007bff;
         }
 		.content {
-            flex: 3	;
+            flex: 8	;
             padding: 20px;
         }
         .topic-header {
@@ -67,7 +64,7 @@
                 <li><a href="#" onclick="showTopic('topic1')">Topic 1</a></li>
                 <li><a href="#" onclick="showTopic('topic2')">Topic 2</a></li>
                 <li><a href="#" onclick="showTopic('topic3')">Topic 3</a></li>
-                <li><a href="#" onclick="showTopic('topic4')">Topic 4</a></li>
+                <li><a href="#" onclick="showTopic('topic4')">Functional Interface</a></li>
             </ul>
         </div>
     </div>
@@ -86,10 +83,48 @@
                 'header': 'Topic 3: Introduction to JavaScript',
                 'content': 'JavaScript is a programming language commonly used to create interactive effects within web browsers.'
             },
-            'topic4': {
-                'header': 'Topic 4: Introduction to Web Development',
-                'content': 'Web development refers to building, creating, and maintaining websites. It includes web design, web content development, and client-side/server-side scripting.'
-            }
+            const topics = {
+    'topic1': {
+        'header': 'Topic 1: Functional Interfaces in Java',
+        'content': `
+            Functional Interfaces are interfaces with exactly one abstract method, designed to be implemented using lambda expressions, method references, or anonymous classes.
+            
+            **Consumer**: A consumer operation takes a single input and returns no result. It's used for operations like printing, logging, or updating values.
+            
+            Example:
+            \`\`\`java
+            Consumer<String> printConsumer = s -> System.out.println(s);
+            printConsumer.accept("Hello, World!"); // Output: Hello, World!
+            \`\`\`
+
+            **Supplier**: A supplier does not take any input but returns a result, commonly used for factories or deferred value retrieval.
+            
+            Example:
+            \`\`\`java
+            Supplier<Double> randomSupplier = () -> Math.random();
+            System.out.println(randomSupplier.get()); // Output: Random number
+            \`\`\`
+
+            **Predicate**: A predicate is a boolean-valued function of one argument. It is commonly used for filtering or matching conditions.
+            
+            Example:
+            \`\`\`java
+            Predicate<Integer> isEven = n -> n % 2 == 0;
+            System.out.println(isEven.test(4)); // Output: true
+            System.out.println(isEven.test(3)); // Output: false
+            \`\`\`
+
+            **Function**: A function takes one argument and produces a result. It's used for transforming or mapping input values to output values.
+            
+            Example:
+            \`\`\`java
+            Function<String, Integer> stringLength = s -> s.length();
+            System.out.println(stringLength.apply("Hello")); // Output: 5
+            \`\`\`
+        `
+    }
+};
+
         };
 
         function showTopic(topicKey) {

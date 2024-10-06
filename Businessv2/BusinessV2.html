@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Static Web Page with Dynamic Content and Collapsible Subtopics</title>
+  <style>
+    body {
+      display: flex;
+      margin: 0;
+      font-family: Arial, sans-serif;
+	  font-size: 12px;
+    }
+
+    /* Navigation Bar */
+    nav {
+      width: 15%;
+      background-color: #f4f4f4;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 10px 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Hide subtopics initially */
+    .subtopics {
+      display: none;
+      padding-left: 20px;
+    }
+
+    /* Content Area */
+    .content {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .content iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Section -->
+  <nav>
+    <h2>Topics</h2>
+    <ul>
+      <li>
+        <a href="#" onclick="toggleSubtopics('subtopic1')">Core</a>
+        <ul id="subtopic1" class="subtopics">
+          <li><a href="#" onclick="loadContent('subtopic1.html')">Java 8 feature</a></li>
+          <li><a href="#" onclick="loadContent('subtopic2.html')">Collection</a></li>
+		  <li><a href="#" onclick="loadContent('subtopic3.html')">Thread</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" onclick="toggleSubtopics('subtopic2')">Hibernet</a>
+        <ul id="subtopic2" class="subtopics">
+          <li><a href="#" onclick="loadContent('subtopic3.html')">Subtopic 2.1</a></li>
+          <li><a href="#" onclick="loadContent('subtopic4.html')">Subtopic 2.2</a></li>
+        </ul>s
+      </li>
+	  <li>
+        <a href="#" onclick="toggleSubtopics('subtopic3')">Design Pattern</a>
+        <ul id="subtopic3" class="subtopics">
+          <li><a href="#" onclick="loadContent('subtopic3.html')">Subtopic 2.1</a></li>
+          <li><a href="#" onclick="loadContent('subtopic4.html')">Subtopic 2.2</a></li>
+        </ul>
+      </li>
+	  <li>
+        <a href="#" onclick="toggleSubtopics('subtopic4')">Springboot</a>
+        <ul id="subtopic4" class="subtopics">
+          <li><a href="#" onclick="loadContent('jwt.html')">JWT</a></li>
+          <li><a href="#" onclick="loadContent('subtopic4.html')">Subtopic 2.2</a></li>
+        </ul>
+      </li>
+	  <li>
+        <a href="#" onclick="toggleSubtopics('subtopic5')">Kubernetes</a>
+        <ul id="subtopic5" class="subtopics">
+          <li><a href="#" onclick="loadContent('subtopic3.html')">Subtopic 2.1</a></li>
+          <li><a href="#" onclick="loadContent('subtopic4.html')">Subtopic 2.2</a></li>
+        </ul>
+      </li>
+	  <li>
+        <a href="#" onclick="toggleSubtopics('subtopic6')">Doployment </a>
+        <ul id="subtopic6" class="subtopics">
+          <li><a href="#" onclick="loadContent('subtopic3.html')">Subtopic 2.1</a></li>
+          <li><a href="#" onclick="loadContent('subtopic4.html')">Subtopic 2.2</a></li>
+        </ul>
+      </li>
+	  <li>
+        <a href="#" onclick="toggleSubtopics('subtopic7')">Aws</a>
+        <ul id="subtopic7" class="subtopics">
+          <li><a href="#" onclick="loadContent('subtopic3.html')">Subtopic 2.1</a></li>
+          <li><a href="#" onclick="loadContent('subtopic4.html')">Subtopic 2.2</a></li>
+        </ul>
+      </li>
+	  <li>
+        <a href="#" onclick="toggleSubtopics('subtopic8')">Coding</a>
+        <ul id="subtopic8" class="subtopics">
+          <li><a href="#" onclick="loadContent('subtopic3.html')">Subtopic 2.1</a></li>
+          <li><a href="#" onclick="loadContent('subtopic4.html')">Subtopic 2.2</a></li>
+        </ul>
+      </li>
+	  <li>
+        <a href="#" onclick="toggleSubtopics('subtopic9')">Architecture</a>
+        <ul id="subtopic9" class="subtopics">
+          <li><a href="#" onclick="loadContent('subtopic3.html')">Subtopic 2.1</a></li>
+          <li><a href="#" onclick="loadContent('subtopic4.html')">Subtopic 2.2</a></li>
+      </ul>
+      </li>
+	  	  <li>
+        <a href="#" onclick="toggleSubtopics('subtopic10')">Behavioral</a>
+        <ul id="subtopic10" class="subtopics">
+          <li><a href="#" onclick="loadContent('subtopic3.html')">Subtopic 2.1</a></li>
+          <li><a href="#" onclick="loadContent('subtopic4.html')">Subtopic 2.2</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Content Section -->
+  <div class="content">
+    <iframe id="content-frame" src="welcome.html"></iframe>
+  </div>
+
+  <!-- JavaScript to Load Content and Toggle Subtopics -->
+  <script>
+    // Function to load content in the iframe
+    function loadContent(page) {
+      document.getElementById('content-frame').src = page;
+    }
+
+    // Function to toggle the visibility of subtopics
+    function toggleSubtopics(id) {
+      var subtopics = document.getElementById(id);
+      if (subtopics.style.display === "block") {
+        subtopics.style.display = "none";
+      } else {
+        subtopics.style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>

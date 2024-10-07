@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whiteboard Project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            font-size: 12px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Project Name: Whiteboard</h1>
+
+    <p>This project, <strong>Whiteboard</strong>, is an interactive platform designed for teaching and presentations. The front-end is built using <strong>React</strong> (integrating <a href="https://excalidraw.io">Excalidraw.io</a>), and the back-end is powered by <strong>Spring Boot</strong>.</p>
+
+    <h2>Users/Roles:</h2>
+
+    <h3>1. Student/User</h3>
+    <ul>
+        <li>Can view scheduled classes.</li>
+        <li>Can participate in live classes and interact in real-time on the whiteboard.</li>
+        <li>Can view recorded classes (stored sessions).</li>
+        <li>Can track progress in courses or assignments.</li>
+    </ul>
+
+    <h3>2. Admin</h3>
+    <ul>
+        <li>Can schedule or cancel classes.</li>
+        <li>Can view ongoing classes (track live sessions).</li>
+        <li>Can view stored classes (previous class sessions).</li>
+        <li>Can enroll or deroll students in specific classes or courses.</li>
+        <li>Can monitor student progress (access reports and metrics).</li>
+        <li>Can assign teachers to specific students or groups.</li>
+        <li>Can take demo sessions of teachers (evaluate teaching quality).</li>
+        <li>Has access to a dashboard with system statistics and activity logs.</li>
+    </ul>
+
+    <h3>3. Teacher</h3>
+    <ul>
+        <li>Can create and manage interactive teaching sessions using <strong>Excalidraw</strong> (e.g., adding annotations, diagrams, etc.).</li>
+        <li>Can assign tasks, assignments, or materials to students.</li>
+        <li>Can view student performance and progress in their classes.</li>
+        <li>Can interact with students in live sessions using features like a virtual whiteboard, chat, and file sharing.</li>
+    </ul>
+
+    <h2>Technical Requirements:</h2>
+
+    <h3>Frontend (React + Excalidraw.io):</h3>
+    <ul>
+        <li>Use <strong>React</strong> to build the user interface.</li>
+        <li>Embed <strong>Excalidraw.io</strong> for interactive whiteboard features, enabling students and teachers to collaborate in real-time.</li>
+        <li>Support live streaming classes, using technologies like <strong>WebRTC</strong> or external tools (e.g., Zoom, Jitsi).</li>
+        <li>Implement role-based authentication and authorization using <strong>JWT</strong> or <strong>OAuth2</strong>.</li>
+        <li>Create a responsive dashboard for Admin and Teachers to manage classes and view progress.</li>
+        <li>Ensure a responsive design for access across devices (desktop, tablet, mobile).</li>
+    </ul>
+
+    <h3>Backend (Spring Boot):</h3>
+    <ul>
+        <li><strong>User Management</strong>: Implement role-based access using <strong>Spring Security</strong>. Provide APIs for registration, login, and profile management for Student, Teacher, and Admin roles.</li>
+        <li><strong>Class Scheduling</strong>: Admin APIs for creating, updating, and canceling classes. Provide APIs to fetch class details (scheduled, ongoing, and stored).</li>
+        <li><strong>Class Interaction</strong>: Integrate <strong>WebSocket</strong> or <strong>STOMP</strong> for live interactive whiteboard collaboration.</li>
+        <li><strong>Progress Tracking</strong>: Admin APIs to monitor and track student progress. Integrate analytics tools for performance monitoring.</li>
+        <li><strong>Enrollment/Assignment</strong>: Admin APIs for enrolling and derolling students, and assigning teachers to students or classes.</li>
+        <li><strong>Storage of Classes</strong>: Use databases like <strong>MySQL</strong> or <strong>PostgreSQL</strong> for storing class data. Use cloud storage services (e.g., <strong>AWS S3</strong>, <strong>Google Cloud Storage</strong>) for saving videos, diagrams, and notes.</li>
+        <li><strong>Progress Reports</strong>: APIs to generate progress reports for students and teachers, based on metrics like attendance and assignment completion.</li>
+    </ul>
+
+    <h2>Additional Features (Optional):</h2>
+    <ul>
+        <li><strong>Notifications System</strong>: Integration for notifying students of upcoming classes, canceled sessions, or assignments via email/SMS.</li>
+        <li><strong>Assignment/Exam Management</strong>: Teachers can assign homework or tests and track submissions.</li>
+        <li><strong>Integration with LMS</strong>: Optionally integrate with learning management systems like <strong>Moodle</strong> or <strong>Canvas</strong>.</li>
+    </ul>
+
+    <h2>Technology Stack:</h2>
+    <ul>
+        <li><strong>Frontend</strong>: React, Excalidraw.io, WebRTC (for live streaming), TailwindCSS/Bootstrap (for styling)</li>
+        <li><strong>Backend</strong>: Spring Boot, Spring Security, Spring Data JPA, WebSocket/STOMP</li>
+        <li><strong>Database</strong>: MySQL/PostgreSQL</li>
+        <li><strong>Cloud Services</strong>: AWS S3, Google Cloud Services</li>
+        <li><strong>Authentication</strong>: OAuth2/JWT for secure user sessions</li>
+    </ul>
+
+    <h2>Next Steps:</h2>
+    <ul>
+        <li>Define user stories and requirements in detail for each role (Student, Teacher, Admin).</li>
+        <li>Set up the React frontend with basic routing and integrate Excalidraw.</li>
+        <li>Build the Spring Boot backend with role-based access control and basic class scheduling functionalities.</li>
+        <li>Plan the live class interaction feature using WebSocket or a similar technology.</li>
+    </ul>
+</body>
+</html>

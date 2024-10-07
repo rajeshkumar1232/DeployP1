@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automobile Repair Guide Project Outline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+			font-size: 12px;
+            margin: 20px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        ul {
+            list-style-type: square;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Automobile Repair Guide Project Outline</h1>
+
+    <h2>1. User Roles</h2>
+    <ul>
+        <li><strong>Admin</strong>: Manages users, workshops, repairs, and tools catalog.</li>
+        <li><strong>Mechanics/Users</strong>: Follow instructions on how to repair vehicles.</li>
+        <li><strong>Workshop Owners</strong>: Manage workshop details, assign mechanics, and monitor repairs.</li>
+    </ul>
+
+    <h2>2. Core Features</h2>
+
+    <h3>a. Problem Identification and Diagnosis</h3>
+    <ul>
+        <li><strong>Frontend (React)</strong>: Users can search or select common problems (e.g., "engine overheating", "brake issues").</li>
+        <li><strong>Backend (Spring Boot)</strong>: Retrieves:
+            <ul>
+                <li>Location in the car where the issue is likely occurring.</li>
+                <li>Steps on how to investigate and diagnose the issue.</li>
+                <li>Tools required for the job.</li>
+                <li>Possible causes of the problem.</li>
+            </ul>
+        </li>
+        <li><strong>Database</strong>: Stores repair instructions, problems, and tools.</li>
+    </ul>
+
+    <h3>b. Repair Instructions</h3>
+    <ul>
+        <li><strong>Frontend (React)</strong>: Displays step-by-step repair instructions with illustrations or diagrams.</li>
+        <li><strong>Backend (Spring Boot)</strong>: Serves instructions based on the selected problem.</li>
+        <li><strong>Tools Integration</strong>: Shows required tools, how to use them, and their relevance to the task.</li>
+    </ul>
+
+    <h3>c. Interactive Car Diagram</h3>
+    <ul>
+        <li><strong>Frontend (React)</strong>: Displays an interactive diagram of the car that highlights where to check based on the problem.</li>
+        <li><strong>Backend (Spring Boot)</strong>: Supplies the data for the highlighted areas.</li>
+    </ul>
+
+    <h3>d. Tool Catalog</h3>
+    <ul>
+        <li><strong>Frontend (React)</strong>: Mechanics and users can view a list of tools for each task.</li>
+        <li><strong>Backend (Spring Boot)</strong>: Admin can manage the tool catalog and link tools to specific repair jobs.</li>
+    </ul>
+
+    <h3>e. Workshops and Repairs Management</h3>
+    <ul>
+        <li><strong>Frontend (React)</strong>:
+            <ul>
+                <li>Mechanics/Users: Log in, see assigned tasks, and track repair completion status.</li>
+                <li>Workshop Owners: Manage mechanics, assign tasks, and view progress.</li>
+            </ul>
+        </li>
+        <li><strong>Backend (Spring Boot)</strong>: Handles user authentication, task assignments, and repair tracking.</li>
+    </ul>
+
+    <h2>3. Architecture Overview</h2>
+    <h3>a. Frontend (React)</h3>
+    <ul>
+        <li>Build UI components for problems, car diagrams, repair instructions, and tool management.</li>
+        <li>Ensure mobile-friendliness with responsive design.</li>
+        <li>Use Redux or Context API for state management.</li>
+    </ul>
+
+    <h3>b. Backend (Spring Boot)</h3>
+    <ul>
+        <li>Expose RESTful APIs for:
+            <ul>
+                <li>Problem retrieval (problem list, details, location).</li>
+                <li>Repair steps retrieval.</li>
+                <li>Tool catalog management.</li>
+                <li>Workshop and repair management.</li>
+                <li>User roles and authentication.</li>
+            </ul>
+        </li>
+        <li>Use a relational database (MySQL/PostgreSQL) for storing repair instructions, tools, and users.</li>
+        <li>Implement role-based access control using Spring Security.</li>
+    </ul>
+
+    <h2>4. Database Schema</h2>
+    <ul>
+        <li><strong>Users Table</strong>: Stores user details and roles (Admin, Mechanic, Workshop Owner).</li>
+        <li><strong>Problems Table</strong>: Contains car problems, symptoms, and possible solutions.</li>
+        <li><strong>Repair Steps Table</strong>: Steps to fix a problem, tools, and time estimates.</li>
+        <li><strong>Tools Table</strong>: Tool name, description, usage, and linked repair steps.</li>
+        <li><strong>Workshops Table</strong>: Workshop details and associated mechanics.</li>
+    </ul>
+
+    <h2>5. Technologies to Use</h2>
+    <ul>
+        <li><strong>Frontend</strong>: React, Redux/Context API, Material-UI/Bootstrap, D3.js or Three.js for car diagrams.</li>
+        <li><strong>Backend</strong>: Spring Boot, JPA/Hibernate, Spring Security.</li>
+        <li><strong>Database</strong>: MySQL or PostgreSQL.</li>
+        <li><strong>3D Modeling</strong>: Use libraries like Three.js for car diagrams.</li>
+    </ul>
+
+    <h2>6. Key Use Cases</h2>
+    <ul>
+        <li><strong>Search/Select Problem</strong>: Users search for a problem or select from a pre-populated list.</li>
+        <li><strong>View Instructions</strong>: Users follow guided repair instructions with images and tool usage tips.</li>
+        <li><strong>Admin Tool Management</strong>: Admin can add new tools and associate them with repair tasks.</li>
+        <li><strong>Workshop Management</strong>: Workshop owners assign tasks to mechanics and track progress.</li>
+    </ul>
+
+    <h2>7. Advanced Features (Optional)</h2>
+    <ul>
+        <li>Implement AI-powered diagnosis to suggest the most likely issues based on user inputs or symptoms.</li>
+        <li>Consider Augmented Reality (AR) to overlay repair instructions on real-world images of the car.</li>
+        <li>Implement a notification system to inform mechanics about new tasks or repair updates.</li>
+    </ul>
+
+    <h2>8. Workflows</h2>
+    <ul>
+        <li><strong>Admin Flow</strong>: Admin logs in → Manages problem database, repair instructions, and tools.</li>
+        <li><strong>Mechanic/User Flow</strong>: Logs in → Selects a problem → Follows guided repair instructions → Updates task status.</li>
+        <li><strong>Workshop Owner Flow</strong>: Logs in → Manages workshop details → Assigns tasks → Monitors task completion.</li>
+    </ul>
+
+    <h2>9. Security and Authentication</h2>
+    <ul>
+        <li>Use JWT tokens for user authentication and session management in both frontend and backend.</li>
+        <li>Ensure role-based access control for Admin, Mechanic, and Workshop Owner roles.</li>
+    </ul>
+
+    <h2>10. CI/CD and Deployment</h2>
+    <ul>
+        <li><strong>Frontend</strong>: Deploy the React app on platforms like Netlify or Vercel.</li>
+        <li><strong>Backend</strong>: Deploy the Spring Boot application on AWS, GCP, or Heroku.</li>
+        <li><strong>CI/CD Pipelines</strong>: Use GitHub Actions, Jenkins, or CircleCI for automated testing and deployment.</li>
+    </ul>
+</body>
+</html>

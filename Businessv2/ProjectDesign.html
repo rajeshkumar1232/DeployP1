@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookMyShow - Design Plan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>BookMyShow Project Design</h1>
+    <h2>Architectural Overview</h2>
+    <p>This project follows a Microservices Architecture, where different modules such as Booking, Payment, Notification, and Seat Management are developed as independent services. We will use Java and integrate the following technologies to build the system.</p>
+
+    <h2>Technology Stack</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Layer</th>
+                <th>Technology</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Backend Framework</td>
+                <td>Spring Boot, Spring Cloud</td>
+            </tr>
+            <tr>
+                <td>Microservices</td>
+                <td>Spring Cloud, Eureka, Hystrix</td>
+            </tr>
+            <tr>
+                <td>Relational Database</td>
+                <td>PostgreSQL/MySQL</td>
+            </tr>
+            <tr>
+                <td>NoSQL/Caching</td>
+                <td>Redis, MongoDB</td>
+            </tr>
+            <tr>
+                <td>Message Broker</td>
+                <td>Apache Kafka / RabbitMQ</td>
+            </tr>
+            <tr>
+                <td>API Gateway</td>
+                <td>Spring Cloud Gateway, Kong</td>
+            </tr>
+            <tr>
+                <td>Security</td>
+                <td>Spring Security, OAuth 2.0, JWT</td>
+            </tr>
+            <tr>
+                <td>Frontend</td>
+                <td>React.js / Angular</td>
+            </tr>
+            <tr>
+                <td>Cloud Hosting</td>
+                <td>AWS (EC2, S3, RDS, EKS)</td>
+            </tr>
+            <tr>
+                <td>Monitoring</td>
+                <td>ELK Stack, Prometheus, Grafana</td>
+            </tr>
+            <tr>
+                <td>Logging</td>
+                <td>Logstash, Elasticsearch, Kibana</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Design Principles</h2>
+    <ul>
+        <li><strong>SOLID:</strong> Each service (e.g., BookingService) will follow Single Responsibility. The system will be modular and extensible.</li>
+        <li><strong>KISS:</strong> Keep each service simple and focus on individual responsibilities to make the system easy to maintain.</li>
+        <li><strong>DRY:</strong> Common functionalities like authentication will be shared across services to avoid repetition.</li>
+    </ul>
+
+    <h2>CAP Theorem</h2>
+    <p>Considering the high scalability and reliability requirements, we will favor **Availability** and **Partition Tolerance** over Consistency during real-time bookings. Redis will be used for caching, while PostgreSQL will maintain transaction integrity for payments and seat reservations.</p>
+
+</div>
+
+</body>
+</html>
